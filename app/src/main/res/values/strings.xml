@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GitHubClient</string>
+
+
+    <string name="forks_title">forks </string>
+    <string name="watches_title">watches </string>
+</resources>

@@ -1,0 +1,10 @@
+/build
+#built application files
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+local.properties
+.DS_Store
