@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.developer.starasov.githubclient.Api.ApiListener;
+import com.developer.starasov.githubclient.api.ApiListener;
 import com.developer.starasov.githubclient.helpers.ApplicationController;
 import com.developer.starasov.githubclient.helpers.GlobalValues;
 import com.developer.starasov.githubclient.R;
@@ -38,12 +38,11 @@ public class LoginActivity extends AppCompatActivity {
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                password.setText("sgaaeloi666");
                 sendLoginData(login.getText().toString() , password.getText().toString());
             }
         });
 
-        preferences = getPreferences(MODE_PRIVATE);
+        preferences = getSharedPreferences(GlobalValues.PACKAGE_NAME,MODE_PRIVATE);
         tryLogin();
 
 
@@ -59,16 +58,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (code == 200){
                     GlobalValues.accountJsonData = data.getAsJsonObject();
                     GlobalValues.accountModel = new Gson().fromJson(data.getAsJsonObject(), AccountModel.class);
-                    Log.i("FindPAth",data.toString());
                     preferences.edit()
                             .putString("login",login.getText().toString())
                             .putString("password",password.getText().toString())
                             .apply();
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(intent);
-//                    login.setText("");
-//                    password.setText("");
-
                 }
                 else {
                     Toast.makeText(LoginActivity.this, "Логин или пароль были изменены либо введены неправильно, попробуйте ввести заново", Toast.LENGTH_SHORT).show();
@@ -87,13 +82,10 @@ public class LoginActivity extends AppCompatActivity {
         final String login = preferences.getString("login","null");
         final String pass = preferences.getString("password","null");
         if (!login.equals("null") && !pass.equals("null")){
+            Log.i("FindError","got it" + login + pass);
             this.login.setText(login);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    sendLoginData(login,pass);
-                }
-            },250);
+            this.password.setText(pass);
+            sendLoginData(login,pass);
 
         }
     }

@@ -1,11 +1,8 @@
 package com.developer.starasov.githubclient.helpers;
 
 import android.app.Application;
-import android.util.Log;
 
-import com.developer.starasov.githubclient.Api.HttpClient;
-
-import okhttp3.OkHttpClient;
+import com.developer.starasov.githubclient.api.HttpClient;
 
 /**
  * Created by macbook on 27.02.2018.

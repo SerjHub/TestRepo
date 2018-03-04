@@ -2,6 +2,7 @@ package com.developer.starasov.githubclient.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,8 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
                 @Override
                 public void onClick(View v) {
                     GlobalValues.repoPathForDetail = list.get(getAdapterPosition()).getName();
-                    mActivity.showFragment(new RepositoryFragment(),R.id.containerMain);
+                    Log.i("FindStart",list.get(getAdapterPosition()).getName());
+                    mActivity.showFragment(new RepositoryFragment());
                 }
             });
         }

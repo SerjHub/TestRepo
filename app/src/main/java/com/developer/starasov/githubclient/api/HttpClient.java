@@ -1,4 +1,4 @@
-package com.developer.starasov.githubclient.Api;
+package com.developer.starasov.githubclient.api;
 
 import android.util.Base64;
 import android.util.Log;
@@ -48,8 +48,8 @@ public class HttpClient  {
         okHttpClient.newCall(createRequest(log_pass_enc,"repos/" + login_for_path + "/" + repoName)).enqueue(new ApiCallbackWorker(listener) {});
     }
 
-    public void getCommits(ApiListener listener){
-        okHttpClient.newCall(createRequest(log_pass_enc,"repos/TestUserExample/TestRepo/commits")).enqueue(new ApiCallbackWorker(listener) {});
+    public void getCommits( String repoName ,ApiListener listener){
+        okHttpClient.newCall(createRequest(log_pass_enc,"repos/" + login_for_path + "/" + repoName +"/commits")).enqueue(new ApiCallbackWorker(listener) {});
     }
 
 }

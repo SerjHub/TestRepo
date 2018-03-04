@@ -1,7 +1,6 @@
-package com.developer.starasov.githubclient.Api;
+package com.developer.starasov.githubclient.api;
 
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 /**
  * Created by macbook on 28.02.2018.

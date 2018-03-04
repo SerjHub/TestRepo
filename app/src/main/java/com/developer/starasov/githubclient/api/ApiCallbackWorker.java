@@ -1,10 +1,9 @@
-package com.developer.starasov.githubclient.Api;
+package com.developer.starasov.githubclient.api;
 
 import android.os.Handler;
 import android.support.annotation.MainThread;
 
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
